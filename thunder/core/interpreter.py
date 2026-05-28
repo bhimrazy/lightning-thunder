@@ -2442,6 +2442,9 @@ class MappingKeysView(ThunderInterpreterObject):
     def __init__(self, mapping):
         self._mapping = mapping
 
+    def __len__(self):
+        return len(self._mapping)
+
     @property
     def mapping(self):
         return self._mapping  # a should be a MappingProxy...
@@ -2487,6 +2490,9 @@ class MappingValuesWrapper(ThunderInterpreterObject):
     def __init__(self, mapping):
         self._mapping = mapping
 
+    def __len__(self):
+        return len(self._mapping)
+
     def __iter__(self):
         return MappingValuesIterator(self._mapping)
 
@@ -2510,6 +2516,9 @@ class MappingItemsIterator(ThunderInterpreterObject):
 class MappingItemsWrapper(ThunderInterpreterObject):
     def __init__(self, mapping):
         self._mapping = mapping
+
+    def __len__(self):
+        return len(self._mapping)
 
     def __iter__(self):
         return MappingItemsIterator(self._mapping)
